@@ -1,0 +1,16 @@
+SUMMARY AND STEPS FOLLOWED:
+
+1. First of all we tried to append the steering angles with its corresponding images.(driving_data.py)
+2. Next we tried to convert the steering angles to radians.
+3. We splitted the data into train and test (70-30 ratio respectively). 
+4. Then we splitted the data into batches of size 100 LoadTrainBatch and LoadValBatch (the functions are called in train.py)
+5. Next we tried to construct our CNN model (model.py). We added 5 convulational layers and used relu activation function in all of them.
+6. We added 4 dropout layers with 0.5 rate. (As instructed in the assignment)
+7. In the last layer we added keras.activation.linear function instead of atanh.
+8. Finally in train.py file, we used adam optimizer rate of 1e-3 but it didn't helped in succesfully execute the model i.e., 
+   the steering wheel doesn't rotated. So we changed  the value to 1e-4, which significantly improved the performace and rotated 
+   the steering wheel. 
+9. During training the model the logs and loss are stored in a directory called save.
+10. Finally in run_dataset.py, we changed the rotation degrees to radians from data.txt file (same as above).
+11. We runned a while loop in which with respect to each log that we got after training we rotated the steering wheel, simultanesously 
+    we displayed the image frames. The observation of the same was phenomenal. 
